@@ -6,7 +6,11 @@ Once PowerModelsDistribution is installed, Ipopt is installed, and a network dat
 using PowerModelsDistribution
 using Ipopt
 
-solve_mc_opf("case3_unbalanced.dss", ACPUPowerModel, Ipopt.Optimizer)
+pkgdir = dirname(dirname(pathof(PowerModelsDistribution)));
+casefolder = joinpath(pkgdir, "test", "data", "opendss");
+casename = "case3_unbalanced.dss";
+casefile = joinpath(casefolder, casename);
+solve_mc_opf(casefile, ACPUPowerModel, Ipopt.Optimizer);
 ```
 
 ## Parsing files
